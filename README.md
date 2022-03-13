@@ -1,2 +1,2 @@
-# Blog
-笔记博客
+# blog-docs
+Technical accumulation documentation station
