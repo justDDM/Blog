@@ -1,4 +1,4 @@
-# React
+# 简介
 
 ## 设计理念
 
@@ -18,7 +18,7 @@ React 目的是用于**快速响应**的大型 Web 应用程序，是一个用�
 
 ### stack reconciler 架构
 
-React 15以及之前使用的是stack reconciler的架构 [官网]([https://zh-hans.reactjs.org/docs/implementation-notes.html])
+React 15以及之前使用的是stack reconciler的架构 [官网](https://zh-hans.reactjs.org/docs/implementation-notes.html)
 
 架构分为两层：
 
@@ -43,23 +43,39 @@ reconciler 和 renderer 是交替工作的，reconciler 发现一个组件更新
 在 Stack reconciler 中，挂载和更新的情况下都会递归更新子组件（同步更新）。递归过程一旦开始则无法结束，若递归深度很深，递归更新所需要的JS执行时间超过了浏览器一帧的时间，则就会引起页面掉帧卡顿。
 
 ::: tip 解决方法
-React16 之后使用了新的 **Fiber reconciler** 架构。在新的架构中使用**可中断的异步更新**来代替了**同步更新**
+React16 之后使用了新的 **Fiber reconciler** 架构。在新的架构中使用**可中断的异步更新**（时间切片）来代替了**同步更新**
 :::
+
+---
 
 ### fiber reconciler 架构
 
-新的架构分为三层：
+> [官网](https://zh-hans.reactjs.org/docs/codebase-overview.html#fiber-reconciler)
 
-#### <font color="#f40" >**1. Scheduler: 调度任务优先级**（高优先级优先进入reconciler)</font>
+Fiber reconciler 的主要目标是：
 
-#### **2. reconciler： 负责找出变化的组件**
+1. 把可中断的任务切片处理
 
-#### **3. renderer**：将变化的组件更新到视图
+2. 能够调整优先级、重置并复用任务
+
+3. 能在父元素与子元素间交错处理、以支持 React 中的布局
+
+4. `render（）`中返回多个元素
+
+5. 更好支持错误边界
+
+**新的架构分为三层：**
+
+<font color="#f40" >**1. Scheduler: 调度任务优先级**（高优先级优先进入reconciler)</font>
+
+**2. reconciler： 负责找出变化的组件**
+
+**3. renderer：将变化的组件更新到视图**
 
 :::tip 异步可中断更新
 在浏览器每一帧里，预留一部分时间给JS线程、React利用这部分时间更新组件。当时间不够时候，控制权交还给浏览器渲染页面，React等待下一帧开始被中断的工作（时间切片）
 :::
 
-递归更新的工作变为了可以中断的循环过程。每次循环都会先调用`shouldYield`判断是否有剩余时间。
+递归更新的工作变为了可以中断的循环过程。每次循环都会先判断是否有剩余时间。
 
 React 为了避免中断更新会带来渲染一部分的情况，在新的架构中 reconciler 和 renderer 不是交替工作的。当Scheduler将任务交给 reconciler 时 reconciler 会为变化的 DOM 打上标识标明是增/删/更新的操作。当所有组件都完成了 reconciler 工作后统一交给 renderer 更新视图。

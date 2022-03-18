@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      /* 基础样式 */
+  body > div:nth-of-type(1) {
+    width: 450px;
+    height: 220px;
+    border: 1px solid black;
+  }
+  body > div:nth-of-type(1) > div {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+  }
+  .wrap {
+    position: relative;
+    left: 100px;
+    display: grid;
+    justify-content: space-around;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(auto-fill, 100px);
+  }
+
+  span {
+    position: absolute;
+    border: 1px solid black;
+    height: 200px;
+  }
+
+  .box {
+
+  }
+
+  .x {
+    width: 0px;
+    height: 0px;
+    border-top: 10px solid black;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    /* border-bottom: 10px solid transparent; */
+  }
+
+  a {
+    /* pointer-events: none; */
+  }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+  </div>
+  <div class="x"></div>
+
+  <a href="www.baidu.com">1</a>
+</body>
+</html>

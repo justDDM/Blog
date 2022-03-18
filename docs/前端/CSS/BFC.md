@@ -17,3 +17,4 @@
   2. 浮动元素
   3. overflow不为visible
   4. display: inline-block / flex / inline-flex / flow-root
+  5. position: absolute / fixed

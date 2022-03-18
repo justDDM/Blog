@@ -135,3 +135,11 @@
     }
   }
 ```
+
+## 类数组转换为数组
+
+1. `Array.from(arr)`
+
+2. `Array.prototype.slice.call(arr)`
+
+3. `...`运算符 `[...arr]`

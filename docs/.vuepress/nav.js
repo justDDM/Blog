@@ -88,11 +88,14 @@ module.exports = [
   {
     text: '基础',
     items: [{
-      text: '内功基础',
-      items: [{
-        text: '设计模式',
-        link: '/基础/设计模式/'
-      }]
+      text: '设计模式',
+      link: '/基础/设计模式/'
+    }, {
+      text: '网络',
+      link: '/基础/网络/'
+    }, {
+      text: '安全',
+      link: '/基础/安全/'
     }]
   },
 
