@@ -91,7 +91,8 @@ module.exports = {
     collapsable: false,
     sidebarDepth: 1,
     children: [
-      'Babel/'
+      'Babel/',
+      'Babel/Babel包',
     ]
   }],
 

@@ -18,21 +18,23 @@ Babel 是一个JavaScript转译器，将高级的JS特性转换为低级的JS特
 
 **Babel 的编译流程**：
 
-1. parse：通过 parse 将源码转换为 AST （抽象语法树）
+1. parse阶段：通过 parser 方法将源码转换为 AST （抽象语法树）
 
-2. tarnsform：遍历处理 AST
+2. tarnsform阶段：遍历处理 AST
 
-3. generate：将转换处理过的 AST 打印生成目标代码（并生成 soucemap）
+3. generate阶段：将转换处理过的 AST 打印生成目标代码（并生成 soucemap）
 
 > 人能理解源码，计算机能理解AST
 
 **即将源码转换成AST然后通过 对AST进行增删改转换为目标代码的AST结构，然后将AST打印生成对应目标代码。**
 
-## Babebl工具
+<img src="/前端/工程化/Babel/Babel流程-简.jpeg" style="border: 1px solid black; width: 80%;">
+
+## Babel工具
 
 - @babel/core：用于完成整个编译流程，从源码到目标代码，且可生成sourcemap
 
-- @babel/parse：对源码进行parse生成AST。可以配置 Plugins(jsx、ts...)、sourceType(module、script、unambiguous) 等指定语法
+- @babel/parser：对源码进行parse生成AST。可以配置 Plugins(jsx、ts...)、sourceType(module、script、unambiguous) 等指定语法
 
 - @babel/traverse：对parse后的AST进行遍历和修改
 

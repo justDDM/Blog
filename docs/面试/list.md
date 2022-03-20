@@ -5,8 +5,8 @@ instanceof 实现原理
 深拷贝(类型考虑/Symbol/Date等的构造/循环优化/共用引用优化)、浅拷贝
 Object.assigned方法属于深拷贝还是浅拷贝
 bind，call，apply用法及区别
-事件循环说一下
-讲一下js单线程，如何处理异步的
+
+
 JS 执行过程中是如何保存上下文的
 如何将js代码缓存到页面上
 js里面的null和undifined的理解
@@ -19,9 +19,6 @@ JavaScript中this的作用域的特点以及使用上的注意事项
 localStorage与cookie区别
 cookie、localstorage的区别，哪些情况和设置，请求不会携带cookie
 如何设置localstorage自动清理
-
-
-
 
 
 es6 class怎么设置原型、静态、实例方法
